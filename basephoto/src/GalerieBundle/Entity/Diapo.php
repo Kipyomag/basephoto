@@ -137,9 +137,10 @@ class Diapo
      *
      * @return Diapo
      */
-    public function setGalery(\GalerieBundle\Entity\Galery $galery)
+    public function setGalery(\GalerieBundle\Entity\Galery $galery = null)
     {
         $this->galery = $galery;
+        $galery->addDiapo($this);
 
         return $this;
     }

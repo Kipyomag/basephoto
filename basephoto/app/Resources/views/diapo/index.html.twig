@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Diapo list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Online</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for diapo in diapos %}
+            <tr>
+                <td><a href="{{ path('diapo_show', { 'id': diapo.id }) }}">{{ diapo.id }}</a></td>
+                <td>{{ diapo.title }}</td>
+                <td>{{ diapo.description }}</td>
+                <td>{% if entity.online %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('diapo_show', { 'id': diapo.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('diapo_edit', { 'id': diapo.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('diapo_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

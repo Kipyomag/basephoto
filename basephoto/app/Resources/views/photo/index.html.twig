@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Photo list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Libelle</th>
+                <th>Datecreate</th>
+                <th>Online</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for photo in photos %}
+            <tr>
+                <td><a href="{{ path('photo_show', { 'id': photo.id }) }}">{{ photo.id }}</a></td>
+                <td>{{ photo.name }}</td>
+                <td>{{ photo.title }}</td>
+                <td>{{ photo.libelle }}</td>
+                <td>{% if photo.dateCreate %}{{ photo.dateCreate|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if entity.online %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('photo_show', { 'id': photo.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('photo_edit', { 'id': photo.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('photo_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
