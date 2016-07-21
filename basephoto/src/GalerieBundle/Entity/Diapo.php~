@@ -129,28 +129,5 @@ class Diapo
     {
         return $this->online;
     }
-
-    /**
-     * Set galery
-     *
-     * @param \GalerieBundle\Entity\Galery $galery
-     *
-     * @return Diapo
-     */
-    public function setGalery(\GalerieBundle\Entity\Galery $galery)
-    {
-        $this->galery = $galery;
-
-        return $this;
-    }
-
-    /**
-     * Get galery
-     *
-     * @return \GalerieBundle\Entity\Galery
-     */
-    public function getGalery()
-    {
-        return $this->galery;
-    }
 }
+
