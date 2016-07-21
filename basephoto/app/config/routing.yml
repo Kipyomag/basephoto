@@ -1,5 +1,5 @@
 galerie:
     resource: "@GalerieBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /basephoto
 
